@@ -1,0 +1,17 @@
+# check https://doc.rust-lang.org/cargo/reference/workspaces.html#virtual-workspace
+[workspace]
+members = ["guide", "server", "modules", "libs", "files"]
+default-members = [
+    "server",
+    "modules",
+    "guide",
+    "files",
+] # only want to use this when do cargo build/test 
+#exclude = ["libs"]
+resolver = "2"
+
+[workspace.dependencies]
+log = "0.4.20"
+env_logger = "0.11.4"
+regex = { version = "1.6.0", default-features = false, features = ["std"] }
+rand = "0.8.5"
